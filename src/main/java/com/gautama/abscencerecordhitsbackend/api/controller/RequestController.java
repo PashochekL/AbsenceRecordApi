@@ -76,8 +76,8 @@ public class RequestController {
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<?> changeRequestStatus(@PathVariable Long id, @RequestBody RequestStatus requestStatus) {
-        requestService.changeRequestStatus(id, requestStatus);
+    public ResponseEntity<?> changeRequestStatus(@PathVariable Long id, @RequestBody StatusDTO statusDTO) {
+        requestService.changeRequestStatus(id, statusDTO);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

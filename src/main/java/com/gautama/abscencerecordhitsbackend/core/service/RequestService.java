@@ -68,9 +68,9 @@ public class RequestService {
         throw new IllegalArgumentException("Некорректные входные данные для даты.");
     }
 
-    public void changeRequestStatus(Long id, RequestStatus requestStatus) {
+    public void changeRequestStatus(Long id, StatusDTO statusDTO) {
         Request request = requestRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Заявка не найдена."));
-        request.setStatus(requestStatus);
+        request.setStatus(statusDTO.getStatus());
         requestRepository.save(request);
     }
 
